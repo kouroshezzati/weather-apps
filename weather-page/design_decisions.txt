@@ -9,3 +9,5 @@ which acts as the parent app, via an embedded iframe.
 The iframe is used to dynamically load the weather app, and communication between the two 
 apps is handled using the postMessage() method. The landing page has a message receiver to 
 capture the data from the weather app and display the forecast information seamlessly.
+
+Note: as there are some HARD codes please run weather-page app first the the landing-page one.

@@ -18,12 +18,14 @@ setup(document.querySelector<HTMLButtonElement>("#loader")!);
 window.addEventListener(
   "message",
   (event) => {
-    if (event.origin !== "http://localhost:5173") {
+    if (event.origin !== "http://localhost:5173" || !event.data) {
       return;
     }
-    console.log(event.data);
     const cityContainer = document.getElementById("cityInfoContainer")!;
     const { city } = event.data;
+    if (!city) {
+      return;
+    }
     cityContainer.innerHTML = `
       <h1>Weather Forecast for ${city.name}, ${city.country}</h1>
       <p>Population: ${city.population}</p>
@@ -37,7 +39,7 @@ window.addEventListener(
 
 function displayWeather(data: any) {
   const container = document.getElementById("forecastContainer")!;
-  container.innerHTML = '';
+  container.innerHTML = "";
   data.forEach((item: any) => {
     const forecastDiv = document.createElement("div");
     forecastDiv.classList.add("forecast-item");
