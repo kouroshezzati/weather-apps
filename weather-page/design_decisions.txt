@@ -1,0 +1,11 @@
+Solution Overview:
+
+To meet the requirements of the assignment, I created two separate projects: 
+one for the landing page using vanilla JavaScript and another for a weather forecasting 
+app built with React. The weather app calculates the four-day weather forecast for the 
+user's current location. This forecast data is then refined and sent to the landing page, 
+which acts as the parent app, via an embedded iframe.
+
+The iframe is used to dynamically load the weather app, and communication between the two 
+apps is handled using the postMessage() method. The landing page has a message receiver to 
+capture the data from the weather app and display the forecast information seamlessly.
