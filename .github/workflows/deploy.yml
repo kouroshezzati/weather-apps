@@ -13,8 +13,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - run: cd weather-page
       - run: npm install
+        working-directory: ./weather-page
       - run: npm run build
+        working-directory: ./weather-page
       - run: npm install -g firebase-tools
       - run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
+        working-directory: ./weather-page
+
